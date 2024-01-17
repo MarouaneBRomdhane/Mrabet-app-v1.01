@@ -1,14 +1,13 @@
-import { ADDCHEQUESTATMENT } from "./Actiontype"
+import { GETCAISSE } from "./Actiontype";
 
-const initialState = {}
+const initialState = { users: [] };
 
-export default (state = initialState, { type, payload }) => {
+export const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case GETCAISSE:
+      return { ...state, users: payload.all_caisses };
 
-  case ADDCHEQUESTATMENT:
-    return { ...state, ...payload }
-
-  default:
-    return state
+    default:
+      return state;
   }
-}
+};

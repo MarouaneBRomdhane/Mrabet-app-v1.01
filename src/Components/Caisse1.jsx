@@ -6,7 +6,8 @@ import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { Col, Row } from "react-bootstrap";
-import "./Caisse1.css";
+
+// import "./Caisse1.css";
 
 function Caisse1() {
   const [montantCheque, setMontantCheque] = useState(0);
@@ -143,7 +144,10 @@ function Caisse1() {
               </Form.Label>
               {/* Button on the same line to add signle cheque statement*/}
               <Col md={2} sm={2} ml={1} className="d-flex align-items-center">
-                <Button variant="primary" style={{ width: "80px", marginLeft:'-15px' }}>
+                <Button
+                  variant="primary"
+                  style={{ width: "80px", marginLeft: "-15px" }}
+                >
                   Ajouter
                 </Button>
               </Col>
@@ -186,7 +190,10 @@ function Caisse1() {
               </Form.Label>
               {/* Button on the same line to add signle cheque statement*/}
               <Col md={2} sm={2} className="d-flex align-items-center">
-                <Button variant="primary" style={{ width: "80px",marginLeft:'-15px' }}>
+                <Button
+                  variant="primary"
+                  style={{ width: "80px", marginLeft: "-15px" }}
+                >
                   Ajouter
                 </Button>
               </Col>
