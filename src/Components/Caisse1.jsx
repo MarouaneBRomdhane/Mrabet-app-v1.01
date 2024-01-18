@@ -6,15 +6,14 @@ import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { Col, Row } from "react-bootstrap";
-import "./Caisse1.css";
 
 function Caisse1() {
-  const [montantCheque, setMontantCheque] = useState(0);
-  const [numeroCheque, setNumeroCheque] = useState(0);
-  const [chequeStatements, setChequeStatements] = useState([]);
-  const [montantTpe, setMontantTpe] = useState(0);
-  const [numeroTpe, setNumeroTpe] = useState(0);
-  const [tpeStatements, setTpeStatements] = useState([]);
+  // const [montantCheque, setMontantCheque] = useState(0);
+  // const [numeroCheque, setNumeroCheque] = useState(0);
+  // const [chequeStatements, setChequeStatements] = useState([]);
+  // const [montantTpe, setMontantTpe] = useState(0);
+  // const [numeroTpe, setNumeroTpe] = useState(0);
+  // const [tpeStatements, setTpeStatements] = useState([]);
 
   const [show, setShow] = useState(false);
 
@@ -48,77 +47,83 @@ function Caisse1() {
           Espece
         </Card.Text>
 
-        {/* accordion for Cheque && TPE statemens */}
+        {/* accordion for CHEQUE statemens */}
         <Accordion>
           <Accordion.Item eventKey="0">
             <Accordion.Header>Cheque stamtements</Accordion.Header>
             <Accordion.Body>Cheque N°: Montant:</Accordion.Body>
           </Accordion.Item>
-          <Accordion.Item eventKey="1">
-            <Accordion.Header>Tpe statements</Accordion.Header>
-            <Accordion.Body>Tpe transaction N°: Montant:</Accordion.Body>
+        </Accordion>
+
+        {/* accordion for TPE statemens */}
+        <Accordion style={{ marginTop: "5px" }}>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>TPE stamtements</Accordion.Header>
+            <Accordion.Body>Transaction N°: Montant:</Accordion.Body>
           </Accordion.Item>
         </Accordion>
 
         {/* button to open modal */}
         <Button
-          style={{
-            marginTop: "10px",
-            border: "0px",
-            backgroundColor: "#005166",
-            color: "#FFF7D6",
-            fontSize: "20px",
-          }}
           onClick={handleShow}
-          className="button-show-modal"
+          className="validation-btn-caisse1"
         >
           Editer journée
         </Button>
 
         {/* MODAL */}
         <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Journée du {Date(24, 0, 2022)} </Modal.Title>
+          <Modal.Header
+            closeButton
+            style={{ backgroundColor: "rgba(0, 126, 127, 0.75)" }}
+          >
+            <Modal.Title style={{ color: "#FFF7D6" }}>
+              Journée du {Date(24, 0, 2022)}{" "}
+            </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body style={{ backgroundColor: "rgba(0, 126, 127, 0.75)" }}>
             <Form>
               <Form.Group
                 className="mb-3"
                 controlId="exampleForm.ControlInput1"
               >
-                <Form.Label>Recette</Form.Label>
+                <Form.Label style={{ color: "#FFF7D6", fontSize: "25px" }}>
+                  Recette
+                </Form.Label>
                 <Form.Control
                   type="number"
                   placeholder="Inserer le montant du ticket de caisse"
                   autoFocus
+                  style={{ marginTop: "-10px" }}
                 />
               </Form.Group>
               <Form.Group
                 className="mb-3"
                 controlId="exampleForm.ControlInput1"
               >
-                <Form.Label>Liquide en caisse</Form.Label>
+                <Form.Label style={{ color: "#FFF7D6", fontSize: "25px" }}>
+                  Espece
+                </Form.Label>
                 <Form.Control
                   type="number"
                   placeholder="Inserer le montant du liquide disponible en caisse"
                   autoFocus
+                  style={{ marginTop: "-10px" }}
                 />
               </Form.Group>
             </Form>
 
             {/* FIelds to add single CHEQUE statments */}
-            <Row className="mb-1">
-              <h5 className="mb-0.5" style={{}}>
-                Cheques
-              </h5>
+            <Row style={{ marginTop: "20px" }}>
+              <h5 style={{ color: "#FFF7D6", fontSize: "25px" }}>Cheques</h5>
             </Row>
-            <Row className="mb-1">
+            <Row style={{ marginTop: "-10px" }}>
               <Form.Label
                 column
                 md={6}
                 sm={6}
                 className="mb-0.5 mt-0.5 d-flex align-items-center"
-                style={{}}
+                style={{ color: "#FFF7D6", fontSize: "18px" }}
               >
                 Montant
                 <Form.Control
@@ -132,7 +137,7 @@ function Caisse1() {
                 md={4}
                 sm={4}
                 className="mb-0.5 mt-0.5 d-flex align-items-center"
-                style={{}}
+                style={{ color: "#FFF7D6", fontSize: "18px" }}
               >
                 N°
                 <Form.Control
@@ -141,27 +146,26 @@ function Caisse1() {
                   placeholder="N°"
                 />
               </Form.Label>
-              {/* Button on the same line to add signle cheque statement*/}
+
+              {/* Button on the same line to add signle CHEQUE statement*/}
               <Col md={2} sm={2} ml={1} className="d-flex align-items-center">
-                <Button variant="primary" style={{ width: "80px", marginLeft:'-15px' }}>
+                <Button className="validation-btn-add-chequeandtpe-modal">
                   Ajouter
                 </Button>
               </Col>
             </Row>
 
             {/* FIelds to add single TPE statments */}
-            <Row className="mb-1">
-              <h5 className="mb-0.5" style={{}}>
-                Cheques
-              </h5>
+            <Row style={{ marginTop: "20px" }}>
+              <h5 style={{ color: "#FFF7D6", fontSize: "25px" }}>TPE</h5>
             </Row>
-            <Row className="mb-1">
+            <Row style={{marginTop:'-10px'}}>
               <Form.Label
                 column
                 md={6}
                 sm={6}
                 className="mb-0.5 mt-0.5 d-flex align-items-center"
-                style={{}}
+                style={{ color: "#FFF7D6", fontSize: "18px" }}
               >
                 Montant
                 <Form.Control
@@ -175,7 +179,7 @@ function Caisse1() {
                 md={4}
                 sm={4}
                 className="mb-0.5 mt-0.5 d-flex align-items-center"
-                style={{}}
+                style={{ color: "#FFF7D6", fontSize: "18px" }}
               >
                 N°
                 <Form.Control
@@ -186,18 +190,18 @@ function Caisse1() {
               </Form.Label>
               {/* Button on the same line to add signle cheque statement*/}
               <Col md={2} sm={2} className="d-flex align-items-center">
-                <Button variant="primary" style={{ width: "80px",marginLeft:'-15px' }}>
+                <Button className="validation-btn-add-chequeandtpe-modal" >
                   Ajouter
                 </Button>
               </Col>
             </Row>
           </Modal.Body>
-          <Modal.Footer>
+          <Modal.Footer style={{ backgroundColor: "rgba(0, 126, 127, 0.75)" }}>
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClose}>
-              Save Changes
+            <Button className="sauvegarde-btn-add-chequeandtpe-modal" onClick={handleClose}>
+              Sauvegareder
             </Button>
           </Modal.Footer>
         </Modal>

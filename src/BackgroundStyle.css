@@ -6,6 +6,7 @@ body {
 
   margin: 0; /* Remove default body margin */
   padding: 0; /* Remove default body padding */
+  background-attachment: fixed; 
 }
 body,
 html {
@@ -14,8 +15,5 @@ html {
   padding: 0;
 }
 
-.AccordionHeader {
-  background-color: "rgba(0, 126, 127, 0.75)";
-}
 
 
