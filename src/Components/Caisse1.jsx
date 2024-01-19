@@ -62,6 +62,20 @@ function Caisse1() {
             <Accordion.Body>Transaction N°: Montant:</Accordion.Body>
           </Accordion.Item>
         </Accordion>
+        <Form.Group
+                className="mb-3"
+                controlId="exampleForm.ControlInput1"
+              >
+                <Form.Label style={{ color: "#FFF7D6", fontSize: "25px", marginTop:'10px' }}>
+                  Ticket de caisse
+                </Form.Label>
+                <Form.Control
+                  type="file"
+                  placeholder="Inserer le montant du ticket de caisse"
+                  autoFocus
+                  style={{ marginTop: "-10px" }}
+                />
+              </Form.Group>
 
         {/* button to open modal */}
         <Button
