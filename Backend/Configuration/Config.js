@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
-const connectDB = async () => {
+const connectdb = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/Mrabet");
-    console.log("Database has successfully connected!");
+    await mongoose.connect(
+      "mongodb+srv://benmarouaneromdhane:84VjbIAaIlbiejvp@cluster0.v00uybj.mongodb.net/?retryWrites=true&w=majority"
+    );
+    console.log("Database connected");
   } catch (error) {
-    console.log("Database has failed to connect, please try again!");
+    if (error) throw error;
   }
 };
-module.exports = connectDB;
+module.exports = connectdb;
